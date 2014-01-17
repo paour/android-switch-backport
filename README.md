@@ -6,25 +6,61 @@ that was introduced on Android 4.
 
 This port works on Android 2.1+.
 
+The current version of this library is `1.2`.
+
 How to use
 ----------
 
-This is an Android library project, you have to add it as a dependency to your project (please
-see http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject to
-know how to do that.)
+### Adding the library to your project
 
-Alternatively, you can use it as a Maven dependency (the artefact is pushed to Maven Central) by putting this 
-in your pom.xml:
+#### Option 1: Android library project (ant / Eclipse)
+
+This is an Android library project, you have to add it as a dependency to your project (please
+see http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject
+to know how to do that.)
+
+#### Option 2: Maven
+
+The apklib artifact is available at the JRAF.org repository. Declare the repository and the
+dependency in your `pom.xml` file:
 ```xml
+<repository>
+    <id>JRAF.org</id>
+    <name>JRAF.org Maven Repository</name>
+    <url>http://JRAF.org/static/maven/2</url>
+    <layout>default</layout>
+</repository>
+
+ (...)
+
 <dependency>
     <groupId>org.jraf</groupId>
-    <artifactId>android-switch-backport</artifactId>
-    <version>1.0</version>
+    <artifactId>android-switch-backport-apklib</artifactId>
+    <version>1.2</version>
     <type>apklib</type>
 </dependency>
 ```
 
-### Switch
+#### Option 3: Gradle
+
+The aar artifact is available at the JRAF.org repository. Declare the repository and the
+dependency in your `build.gradle` file:
+```groovy
+repositories {
+    mavenCentral()
+    maven {
+        url "http://JRAF.org/static/maven/2"
+    }
+}
+
+ (...)
+
+dependencies {
+    compile "org.jraf:android-switch-backport:1.2"
+}
+```
+
+### Using the Switch
 
 Once you have done that, have a theme for your application (or Activity), that declares the `switchStyle` item
 to be one of the two possible themes: either `Widget.Holo.CompoundButton.Switch` (dark) or `Widget.Holo.Light.CompoundButton.Switch`
@@ -64,7 +100,7 @@ Then in your layout xml files you use the widget like this:
     android:layout_height="wrap_content" />
 ```
 
-### SwitchPreference
+### Using the SwitchPreference
 
 Add switchPreferenceStyle to your 'themes.xml'
 
@@ -108,7 +144,8 @@ Credits
 The code was copied directly from the Android 4.0.3 (API 15) source code, then slightly tweaked by myself (BoD@JRAF.org) to make
 it run on 2.1+.  The few modifications I made are documented in the code (look for 'XXX' comments).
 The SwitchPreference part was added later by Intrications (intrications.com / github.com/intrications), also by taking code
-from Android and tweaking it a bit.
+from Android and tweaking it a bit.  Other people also have contributed tweaks and fixes, please see this page for a detailed
+list: https://github.com/BoD/android-switch-backport/graphs/contributors
 
 Licence
 -------
