@@ -24,11 +24,14 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.jraf.android.backport.switchwidget"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="org.jraf.android.backport.switchwidget"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0"
+	tools:ignore="GradleOverrides">
 
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19"
+		tools:ignore="OldTargetApi" />
     <application />
 
 </manifest>

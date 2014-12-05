@@ -119,7 +119,7 @@ public class SwitchPreference extends TwoStatePreference {
 
 		Switch checkableView = (Switch) view.findViewById(R.id.switchWidget);
 		if (checkableView != null /* && checkableView instanceof Checkable */) {
-			((Checkable) checkableView).setChecked(mChecked);
+			checkableView.setChecked(mChecked);
 
 			// XXX Was on the Android source, but had to comment it out. --
 			// Intrications
